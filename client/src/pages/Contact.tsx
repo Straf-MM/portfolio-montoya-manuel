@@ -204,7 +204,7 @@ export default function Contact() {
               <p className="text-sm text-muted-foreground mb-4">
                 Mon curriculum vitae détaillé
               </p>
-              <a href="#" className="block">
+              <a href="/MONTOYA Manuel - CV.pdf" download className="block">
                 <Button variant="outline" className="w-full" size="sm">
                   Télécharger
                 </Button>
@@ -220,7 +220,7 @@ export default function Contact() {
               <p className="text-sm text-muted-foreground mb-4">
                 Ma lettre de motivation
               </p>
-              <a href="#" className="block">
+              <a href="/Lettre_Motivation_Manuel.pdf" download className="block">
                 <Button variant="outline" className="w-full" size="sm">
                   Télécharger
                 </Button>
@@ -236,7 +236,7 @@ export default function Contact() {
               <p className="text-sm text-muted-foreground mb-4">
                 Rapport détaillé de mon 2ème stage
               </p>
-              <a href="#" className="block">
+              <a href="/2SISR-MONTOYA-RapportStage - 2eme STAGE.pdf" download className="block">
                 <Button variant="outline" className="w-full" size="sm">
                   Télécharger
                 </Button>
