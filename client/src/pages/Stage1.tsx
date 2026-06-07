@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Building, Calendar, MapPin, CheckCircle } from "lucide-react";
+import { ArrowLeft, Building, Calendar, MapPin, CheckCircle, Download } from "lucide-react";
 import { manuelData } from "@/data/manuel-data";
 
 export default function Stage1() {
@@ -103,6 +103,22 @@ export default function Stage1() {
               ))}
             </div>
           </Card>
+
+          {/* Download Section */}
+          <div className="flex gap-4 flex-wrap justify-center">
+            <a href="/COMPTE RENDU - STAGE - MONTOYA MANUEL - STAGE 1 .pdf" download>
+              <Button className="gap-2">
+                <Download className="w-4 h-4" />
+                Télécharger le rapport PDF
+              </Button>
+            </a>
+            <Link href="/stages">
+              <Button variant="outline" className="gap-2">
+                <ArrowLeft className="w-4 h-4" />
+                Retour aux stages
+              </Button>
+            </Link>
+          </div>
 
           {/* CTA */}
           <div className="flex gap-4 justify-center">
