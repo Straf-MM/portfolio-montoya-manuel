@@ -18,8 +18,8 @@ export default function Home() {
   const skills = [
     { icon: Server, label: "Infrastructure", color: "from-blue-500 to-cyan-500" },
     { icon: Shield, label: "Sécurité", color: "from-purple-500 to-pink-500" },
-    { icon: Code2, label: "Scripting", color: "from-green-500 to-emerald-500" },
-    { icon: Zap, label: "DevOps", color: "from-orange-500 to-red-500" },
+    { icon: Code2, label: "Virtualisation", color: "from-green-500 to-emerald-500" },
+    { icon: Zap, label: "Gestion de Configuration", color: "from-orange-500 to-red-500" },
   ];
 
   const achievements = [
