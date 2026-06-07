@@ -36,7 +36,7 @@ export default function Competences() {
               en 1ère et 2ème année, validées par mes expériences
               professionnelles et mes projets réalisés.
             </p>
-            <a href="/E4_Competences.xlsx" download="E4_Competences.xlsx">
+            <a href="/BTS_SIO_Annexe_VI.5_Epreuve-E5-MONTOYA-Manuel.xlsx" download="BTS_SIO_Annexe_VI.5_Epreuve-E5-MONTOYA-Manuel.xlsx">
               <Button className="gap-2">
                 <Download className="w-4 h-4" />
                 Télécharger le tableau E4 complet
