@@ -204,7 +204,7 @@ export default function Contact() {
               <p className="text-sm text-muted-foreground mb-4">
                 Mon curriculum vitae détaillé
               </p>
-              <a href="/MONTOYA Manuel - CV.pdf" download className="block">
+              <a href="/CV_Manuel_Montoya.pdf" download className="block">
                 <Button variant="outline" className="w-full" size="sm">
                   Télécharger
                 </Button>
