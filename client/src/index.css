@@ -108,7 +108,7 @@
   --sidebar: #1e293b;
   --sidebar-foreground: #f1f5f9;
   --sidebar-accent: #334155;
-  --sidebar-accent-foreground: #06b6d4;
+  --sidebar-accent-foreground: #f1f5f9;
   --sidebar-border: #334155;
   --sidebar-ring: #60a5fa;
 }
@@ -157,6 +157,17 @@
     }
   }
 
+  @keyframes shooting-star {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px)) rotate(45deg);
+      opacity: 0;
+    }
+  }
+
   .animate-blob {
     animation: blob 7s infinite;
   }
@@ -173,17 +184,6 @@
     animation: fade-in 0.8s ease-out;
   }
 
-  @keyframes shooting-star {
-    0% {
-      transform: translateX(-100%) translateY(-100%) rotate(45deg);
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px)) rotate(45deg);
-      opacity: 0;
-    }
-  }
-
   .shooting-star {
     position: fixed;
     top: 0;
@@ -192,38 +192,15 @@
     height: 100px;
     background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.8), transparent);
     pointer-events: none;
-    z-index: 10;
+    z-index: 50;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
   }
 
-  .shooting-star::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: radial-gradient(ellipse at center, rgba(147, 197, 253, 0.6), transparent);
-    filter: blur(2px);
-  }
-
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -234,16 +211,16 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
     }
   }
 }
