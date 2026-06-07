@@ -1,12 +1,44 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Github, FileDown } from "lucide-react";
 import { manuelData } from "@/data/manuel-data";
+import { toast } from "sonner";
 
 export default function Contact() {
-  // Formspree form ID
-  const FORMSPREE_ID = "xyzayqrr";
-  const formAction = `https://formspree.io/f/${FORMSPREE_ID}`;
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xyzayqrr", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success("Message envoyé avec succès ! Merci de m'avoir contacté.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Erreur lors de l'envoi du message. Veuillez réessayer.");
+      }
+    } catch (error) {
+      toast.error("Erreur de connexion. Veuillez vérifier votre connexion.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -100,7 +132,7 @@ export default function Contact() {
               Envoyez-moi un message
             </h2>
             <Card className="p-8 border border-border">
-              <form action={formAction} method="POST" className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Nom
@@ -108,6 +140,8 @@ export default function Contact() {
                   <input
                     type="text"
                     name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Votre nom"
                     required
                     className="w-full px-4 py-2 rounded-md border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
@@ -121,6 +155,8 @@ export default function Contact() {
                   <input
                     type="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="votre.email@exemple.com"
                     required
                     className="w-full px-4 py-2 rounded-md border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
@@ -133,14 +169,16 @@ export default function Contact() {
                   </label>
                   <textarea
                     name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Votre message..."
                     required
                     className="w-full px-4 py-2 rounded-md border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary min-h-32"
                   />
                 </div>
 
-                <Button type="submit" className="w-full">
-                  Envoyer le message
+                <Button type="submit" className="w-full" disabled={isLoading}>
+                  {isLoading ? "Envoi en cours..." : "Envoyer le message"}
                 </Button>
               </form>
               <p className="text-xs text-muted-foreground mt-4 text-center">
