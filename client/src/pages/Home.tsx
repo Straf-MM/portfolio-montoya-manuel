@@ -2,212 +2,241 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
-  Code,
-  Database,
+  Code2,
+  Server,
   Shield,
-  Briefcase,
-  BookOpen,
+  Zap,
+  Github,
   Mail,
+  ExternalLink,
   ArrowRight,
+  CheckCircle2,
 } from "lucide-react";
 import { manuelData } from "@/data/manuel-data";
 
 export default function Home() {
   const skills = [
-    {
-      icon: Code,
-      title: "Développement",
-      description: "Web, Mobile, Desktop",
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      icon: Database,
-      title: "Base de données",
-      description: "SQL, NoSQL, Administration",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      icon: Shield,
-      title: "Cybersécurité",
-      description: "Sécurité réseau, Protection des données",
-      color: "from-orange-500 to-red-500",
-    },
+    { icon: Server, label: "Infrastructure", color: "from-blue-500 to-cyan-500" },
+    { icon: Shield, label: "Sécurité", color: "from-purple-500 to-pink-500" },
+    { icon: Code2, label: "Scripting", color: "from-green-500 to-emerald-500" },
+    { icon: Zap, label: "DevOps", color: "from-orange-500 to-red-500" },
+  ];
+
+  const achievements = [
+    { number: "2", label: "Stages professionnels" },
+    { number: "5+", label: "Projets réalisés" },
+    { number: "10+", label: "Technologies maîtrisées" },
+    { number: "100%", label: "Engagement" },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 md:py-40 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 -z-10" />
-
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-block">
-            <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold">
-              Bienvenue 👋
-            </span>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Manuel Montoya
-          </h1>
-
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-            Étudiant en BTS SIO
-          </p>
-
-          <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Services Informatiques aux Organisations - Option SISR
-          </p>
-
-          <div className="flex flex-wrap gap-4 justify-center mb-12">
-            <Link href="/stages">
-              <Button size="lg" className="gap-2 group">
-                <Briefcase className="w-4 h-4" />
-                Découvrir mes stages
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="gap-2">
-                <Mail className="w-4 h-4" />
-                Me contacter
-              </Button>
-            </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16">
-            <div>
-              <p className="text-3xl md:text-4xl font-bold text-primary">2</p>
-              <p className="text-sm text-muted-foreground">Stages</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-bold text-primary">6</p>
-              <p className="text-sm text-muted-foreground">Pages</p>
-            </div>
-            <div>
-              <p className="text-3xl md:text-4xl font-bold text-primary">10+</p>
-              <p className="text-sm text-muted-foreground">Compétences</p>
-            </div>
-          </div>
+      <section className="relative overflow-hidden pt-20 pb-32 px-4">
+        {/* Animated background */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-1/2 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
         </div>
-      </section>
 
-      {/* About Section */}
-      <section className="py-16 px-4 bg-card border-t border-border">
-        <div className="container mx-auto max-w-4xl">
-          <div className="bg-background rounded-2xl p-8 md:p-12 border border-border">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              À propos de moi
-            </h2>
+        <div className="container mx-auto max-w-5xl">
+          {/* Main Hero */}
+          <div className="text-center mb-20 animate-fade-in">
+            <div className="inline-block mb-6 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full border border-blue-200 dark:border-blue-800">
+              <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                👋 Bienvenue sur mon portfolio
+              </span>
+            </div>
 
-            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
-              <p>{manuelData.about.intro}</p>
-              <p>{manuelData.about.passion}</p>
-              <p>{manuelData.about.portfolio}</p>
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
+              Manuel <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Montoya</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Étudiant BTS SIO - Option SISR | Passionné par l'infrastructure et la sécurité informatique
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Link href="/contact">
+                <Button size="lg" className="gap-2 group">
+                  Me contacter
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <a href="https://github.com/Straf-MM" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="gap-2">
+                  <Github className="w-4 h-4" />
+                  GitHub
+                </Button>
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+              {achievements.map((achievement, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
+                >
+                  <div className="text-3xl font-bold text-primary mb-2">
+                    {achievement.number}
+                  </div>
+                  <p className="text-sm text-muted-foreground">{achievement.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Mes compétences principales
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Domaines d'expertise développés durant ma formation BTS SIO
+      <section className="py-20 px-4 bg-card/50 border-y border-border">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Domaines de compétences</h2>
+            <p className="text-muted-foreground text-lg">
+              Mes spécialités développées au cours de ma formation BTS SIO
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {skills.map((skill, index) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {skills.map((skill, idx) => {
               const Icon = skill.icon;
               return (
-                <Card
-                  key={index}
-                  className="p-8 border border-border hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
+                <div
+                  key={idx}
+                  className="group relative p-6 rounded-xl bg-background border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${skill.color} p-3 mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-full h-full text-white" />
+                  <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${skill.color} mb-4`}>
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {skill.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {skill.description}
+                  <h3 className="font-semibold text-foreground mb-2">{skill.label}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Expertise en {skill.label.toLowerCase()}
                   </p>
-                </Card>
+                </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Studies Section */}
-      <section className="py-16 px-4 bg-card border-t border-border">
-        <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">
-            Mon parcours BTS SIO
-          </h2>
-
-          <Card className="p-8 md:p-12 border border-border bg-gradient-to-br from-primary/5 to-accent/5">
-            <div className="flex items-start gap-4 mb-4">
-              <BookOpen className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-2">
-                  BTS SIO - Option SISR
-                </h3>
+      {/* Featured Sections */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Stages */}
+            <Link href="/stages">
+              <Card className="h-full p-8 cursor-pointer group border-2 border-transparent hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:bg-primary/5">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30">
+                    <Server className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">Stages</h3>
                 <p className="text-muted-foreground mb-4">
-                  2023 - 2025 (en cours)
+                  Découvrez mes expériences professionnelles chez Liebherr Mining
                 </p>
-                <p className="text-foreground leading-relaxed">
-                  Formation complète en informatique couvrant le développement
-                  d'applications, l'administration des systèmes et réseaux, la
-                  gestion de bases de données, et la cybersécurité. Cette
-                  formation allie théorie et pratique avec des projets concrets
-                  et des périodes de stage en entreprise.
+                <div className="flex items-center gap-2 text-sm text-primary font-medium">
+                  Voir les stages <ArrowRight className="w-4 h-4" />
+                </div>
+              </Card>
+            </Link>
+
+            {/* Compétences E4 */}
+            <Link href="/competences">
+              <Card className="h-full p-8 cursor-pointer group border-2 border-transparent hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:bg-primary/5">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30">
+                    <CheckCircle2 className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">Compétences E4</h3>
+                <p className="text-muted-foreground mb-4">
+                  Tableau synthétique des compétences acquises en BTS SIO
                 </p>
+                <div className="flex items-center gap-2 text-sm text-primary font-medium">
+                  Voir les compétences <ArrowRight className="w-4 h-4" />
+                </div>
+              </Card>
+            </Link>
+
+            {/* Veille Technologique */}
+            <Link href="/veille">
+              <Card className="h-full p-8 cursor-pointer group border-2 border-transparent hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:bg-primary/5">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="p-3 rounded-lg bg-cyan-100 dark:bg-cyan-900/30">
+                    <Shield className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">Veille Technologique</h3>
+                <p className="text-muted-foreground mb-4">
+                  Analyse des backdoors et vulnérabilités informatiques
+                </p>
+                <div className="flex items-center gap-2 text-sm text-primary font-medium">
+                  Lire l'article <ArrowRight className="w-4 h-4" />
+                </div>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 px-4 bg-card/50 border-y border-border">
+        <div className="container mx-auto max-w-4xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">À propos de moi</h2>
+              <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
+                Je suis passionné par l'informatique et les nouvelles technologies. Ma formation en BTS SIO m'a permis de développer des compétences solides en infrastructure, systèmes et réseaux.
+              </p>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Je suis actuellement en deuxième année de BTS SIO, option SISR, et je mets tout en œuvre pour devenir un professionnel compétent dans le domaine de l'infrastructure et de la sécurité informatique.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="p-6 rounded-lg bg-background border border-border hover:border-primary/50 transition-all">
+                <h4 className="font-semibold text-foreground mb-2">📍 Localisation</h4>
+                <p className="text-muted-foreground">{manuelData.personal.city}</p>
+              </div>
+              <div className="p-6 rounded-lg bg-background border border-border hover:border-primary/50 transition-all">
+                <h4 className="font-semibold text-foreground mb-2">🎓 Formation</h4>
+                <p className="text-muted-foreground">{manuelData.personal.formation}</p>
+              </div>
+              <div className="p-6 rounded-lg bg-background border border-border hover:border-primary/50 transition-all">
+                <h4 className="font-semibold text-foreground mb-2">💼 Spécialité</h4>
+                <p className="text-muted-foreground">SISR - Solutions d'Infrastructures, Systèmes et Réseaux</p>
               </div>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 px-4">
-        <div className="container mx-auto max-w-3xl">
-          <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-12 border border-border text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Explorez mon travail
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Découvrez mes projets, mes expériences en stage et ma veille
-              technologique
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/stages">
-                <Button size="lg" variant="outline" className="gap-2">
-                  <Briefcase className="w-4 h-4" />
-                  Mes Stages
-                </Button>
-              </Link>
-              <Link href="/bts-sio">
-                <Button size="lg" variant="outline" className="gap-2">
-                  <BookOpen className="w-4 h-4" />
-                  BTS SIO
-                </Button>
-              </Link>
-              <Link href="/veille">
-                <Button size="lg" variant="outline" className="gap-2">
-                  <Shield className="w-4 h-4" />
-                  Veille Technologique
-                </Button>
-              </Link>
-            </div>
+        <div className="container mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-bold text-foreground mb-6">Intéressé par mon profil ?</h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            N'hésitez pas à me contacter pour discuter de mes projets ou pour une collaboration
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact">
+              <Button size="lg" className="gap-2">
+                <Mail className="w-4 h-4" />
+                Envoyer un message
+              </Button>
+            </Link>
+            <a href="https://github.com/Straf-MM" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="gap-2">
+                <Github className="w-4 h-4" />
+                Voir mon GitHub
+              </Button>
+            </a>
           </div>
         </div>
       </section>
