@@ -13,6 +13,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { manuelData } from "@/data/manuel-data";
+import ShootingStars from "@/components/ShootingStars";
 
 export default function Home() {
   const skills = [
@@ -31,6 +32,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      <ShootingStars />
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-20 pb-32 px-4">
         {/* Animated background */}
