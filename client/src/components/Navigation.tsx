@@ -24,12 +24,12 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-background border-b border-border shadow-sm">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-sm">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo / Brand */}
         <Link href="/">
-          <a className="text-xl font-bold text-foreground hover:text-primary transition-colors">
-            Manuel Montoya
+          <a className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+            MM
           </a>
         </Link>
 
@@ -37,7 +37,7 @@ export default function Navigation() {
         <div className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href}>
-              <a className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors">
+              <a className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200">
                 {item.label}
               </a>
             </Link>
