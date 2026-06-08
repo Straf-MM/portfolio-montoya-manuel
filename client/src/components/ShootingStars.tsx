@@ -18,7 +18,7 @@ export default function ShootingStars() {
           id: Math.random(),
           left: Math.random() * 100,
           delay: Math.random() * 5,
-          duration: 2 + Math.random() * 1,
+          duration: 2.5 + Math.random() * 1.5,
         });
       }
       setStars(newStars);
@@ -37,6 +37,7 @@ export default function ShootingStars() {
           className="shooting-star"
           style={{
             left: `${star.left}%`,
+            top: "-50px",
             animation: `shooting-star ${star.duration}s ease-in forwards`,
             animationDelay: `${star.delay}s`,
           }}
