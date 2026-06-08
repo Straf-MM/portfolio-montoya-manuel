@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
   "rewrites": [
     {
       "source": "/(?!.*\\.(pdf|png|jpg|jpeg|gif|svg|css|js|json|ico|webp)$)(.*)",
